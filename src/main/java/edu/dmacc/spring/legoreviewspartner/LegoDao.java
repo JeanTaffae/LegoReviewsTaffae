@@ -37,6 +37,14 @@ public class LegoDao {
 		return allNames;
 	}
 	
+	public List<Lego> getLegoIds() {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<Lego> typedQuery = em.createQuery("select ln.id from Lego ln",Lego.class);
+		List<Lego> allIds = typedQuery.getResultList();
+		System.out.println(allIds);
+		return allIds;
+	}
 	public Lego getLegoById(int i) {
 		EntityManager em=emfactory.createEntityManager();
 		em.getTransaction().begin();

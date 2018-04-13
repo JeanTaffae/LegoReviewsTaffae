@@ -10,7 +10,8 @@
 </head>
 <body>
 <h2> Lego Review Entry Form</h2>
-<mvc:form modelAttribute="review" action="reviewResult.mvc">
+<mvc:form modelAttribute="review"  action="reviewResult.mvc" >
+
 	<table>
 	    <tr>
 	        <td><mvc:label path="name">Name</mvc:label></td>
@@ -25,8 +26,9 @@
 	        <td><mvc:input path="age" /></td>
 	    </tr>
 	    <tr>
-	        <td><mvc:label path="lego">Lego</mvc:label></td>
-	        <td><mvc:select path="lego" items="${allLegos}"/></td>
+	        <td><mvc:label path="legoId">Lego</mvc:label></td>
+	         <td><mvc:select path="legoId" items= "${allLegos}"/> </td>
+	        
 	    </tr>
 	    <tr>
 	        <td><mvc:label path="review">Review</mvc:label></td>
