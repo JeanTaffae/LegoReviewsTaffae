@@ -10,31 +10,31 @@
 </head>
 <body>
 <h2> Lego Edit Form</h2>
-<mvc:form modelAttribute="lego" action="editLego.mvc">
+<mvc:form modelAttribute="lego" action="editResult.mvc">
 	<table>
 	    <tr>
-            <td>Name</td>
-            <td>${l.name}</td>
+            <td><mvc:label path="name">Name</mvc:label></td>
+            <td><mvc:input path = "name" value = "${e.name}" /></td>
         </tr>
 		<tr>
-            <td>Theme</td>
-            <td>${l.theme}</td>
+            <td><mvc:label path="theme">Theme</mvc:label></td>
+            <td><mvc:select path="theme" items="${themes}" value = "${e.theme}" /></td>
         </tr>
         <tr>
-            <td>Item Number</td>
-            <td>${l.itemNumber}</td>
+            <td><mvc:label path="itemNumber">Item Number</mvc:label></td>
+            <td><mvc:input path = "itemNumber" value = "${e.itemNumber}" /></td>
         </tr>
 		<tr>
-            <td>Age Range</td>
-            <td>${l.ageRange}</td>
+            <td><mvc:label path="ageRange">Age Range</mvc:label></td>
+            <td><mvc:select path="ageRange" items = "${ages}" value = "${e.ageRange}" /></td>
         </tr>
         <tr>
-            <td>Pieces</td>
-            <td>${l.pieces}</td>
+            <td><mvc:label path="pieces">Pieces</mvc:label></td>
+            <td><mvc:input path="pieces" value = "${e.pieces}" /></td>
         </tr>
         <tr>
-            <td>Cost</td>
-            <td>${l.cost}</td>
+            <td><mvc:label path="cost">Cost</mvc:label></td>
+            <td><mvc:input path="cost" value = "${e.cost}" /></td>
         </tr>
 	    <tr>
 	        <td colspan="2">

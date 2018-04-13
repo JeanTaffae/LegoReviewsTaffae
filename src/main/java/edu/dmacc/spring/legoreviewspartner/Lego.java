@@ -1,4 +1,4 @@
-package edu.dmacc.spring.legoreviewstaffae;
+package edu.dmacc.spring.legoreviewspartner;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

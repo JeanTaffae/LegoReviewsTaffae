@@ -10,6 +10,7 @@
 <title>All Legos</title>
 </head>
 <body>
+<mvc:form modelAttribute="lego" >
 <c:forEach items="${all}" var="item">
 		<table>
 			<tr>
@@ -47,6 +48,7 @@
 		<hr style="text-align: left; margin-left: 0; width: 25%">
 		<br />
 	</c:forEach>
+</mvc:form>
 	<a href="deleteLego.mvc">Delete Selected Lego</a><br />
 	<a href="editLego.mvc">Edit Selected Lego</a><br />
 	<a href="form.mvc">Add a new lego</a><br />

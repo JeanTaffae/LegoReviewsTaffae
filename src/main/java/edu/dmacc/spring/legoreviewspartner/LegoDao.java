@@ -1,4 +1,4 @@
-package edu.dmacc.spring.legoreviewstaffae;
+package edu.dmacc.spring.legoreviewspartner;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class LegoDao {
 	public List<Lego> getLegoNames() {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Lego> typedQuery = em.createQuery("select ln from Lego ln",Lego.class);
+		TypedQuery<Lego> typedQuery = em.createQuery("select ln.name from Lego ln",Lego.class);
 		List<Lego> allNames = typedQuery.getResultList();
 		System.out.println(allNames);
 		return allNames;
@@ -51,7 +51,6 @@ public class LegoDao {
 		TypedQuery<Lego> typedQuery = em.createQuery(
 		"select l from Lego l where l.id = :selectedId", Lego.class);
 		typedQuery.setParameter("selectedId", toDelete.getId());
-		System.out.println("lego id:" + toDelete.getId());
 		typedQuery.setMaxResults(1);
 		Lego result = typedQuery.getSingleResult();
 		em.remove(result);
@@ -84,5 +83,14 @@ public class LegoDao {
 		return all;
 	}
 
+	public Lego getLegoByName(String legoName) {
+		EntityManager em=emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Lego reviewLego = em.find(Lego.class, legoName);
+		em.close();
+		System.out.println(reviewLego);
+		return reviewLego;
+	}
 
 }
+

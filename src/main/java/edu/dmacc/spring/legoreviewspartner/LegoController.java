@@ -1,4 +1,4 @@
-package edu.dmacc.spring.legoreviewstaffae;
+package edu.dmacc.spring.legoreviewspartner;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public ModelAndView review() {
 	modelAndView.setViewName("reviewForm");
 	modelAndView.addObject("review", new Review());
 	List<Lego> allLegos = dao.getLegoNames();
-	modelAndView.addObject(allLegos);
+	modelAndView.addObject("allLegos", allLegos);
 	modelAndView.addObject("reviews", reviews);
 	return modelAndView;
 }
@@ -55,6 +55,8 @@ public ModelAndView review() {
 @RequestMapping(value = "/reviewResult")
 public ModelAndView processReview (Review review) {
 	ModelAndView modelAndView = new ModelAndView();
+	Lego lego = dao.getLegoByName("lego");
+	System.out.println(lego.toString());
 	dao.insertReview(review);
 	modelAndView.setViewName("reviewResult");
 	modelAndView.addObject("r", review);
@@ -82,7 +84,7 @@ public ModelAndView viewAllReviews () {
 public ModelAndView deleteLego (Lego lego) {
 	ModelAndView modelAndView = new ModelAndView();
 	//Lego legoToDelete = dao.getLegoById(item.id);
-	Lego legoToDelete = dao.getLegoById(2);
+	Lego legoToDelete = dao.getLegoById(7);
 	dao.deleteLego(legoToDelete);
 	List<Lego> allLegos = dao.getAllLegos();
 	modelAndView.setViewName("viewAllLegos");
@@ -93,10 +95,22 @@ public ModelAndView deleteLego (Lego lego) {
 @RequestMapping(value = "/editLego")
 public ModelAndView editLego (Lego lego) {
 	ModelAndView modelAndView = new ModelAndView();
-	Lego legoToEdit = dao.getLegoById(4);
-	dao.editLego(legoToEdit);
+	Lego editLego = dao.getLegoById(4);
+	System.out.println(lego.toString());
 	modelAndView.setViewName("editLego");
-	modelAndView.addObject("l", lego);
+	modelAndView.addObject("ages", ages);
+	modelAndView.addObject("themes", themes);
+	modelAndView.addObject("e", editLego);
 	return modelAndView;
 }
+@RequestMapping(value = "/editResult")
+public ModelAndView editResult (Lego lego) {
+	ModelAndView modelAndView = new ModelAndView();
+	dao.editLego(lego);
+	List<Lego> allLegos = dao.getAllLegos();
+	modelAndView.setViewName("viewAllLegos");
+	modelAndView.addObject("all", allLegos);
+	return modelAndView;
+}
+
 }

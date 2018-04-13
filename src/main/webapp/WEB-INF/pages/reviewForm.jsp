@@ -34,7 +34,7 @@
 	    </tr>
 	    <tr>
 	        <td colspan="2">
-                <input type="submit" value="Submit" />
+                <input type="submit" value="Add Review" />
 	        </td>
 	    </tr>
 	</table>  
