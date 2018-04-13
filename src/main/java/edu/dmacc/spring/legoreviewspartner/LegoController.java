@@ -2,6 +2,8 @@ package edu.dmacc.spring.legoreviewspartner;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
@@ -81,14 +83,17 @@ public ModelAndView viewAllReviews () {
 }
 
 @RequestMapping(value = "/deleteLego")
-public ModelAndView deleteLego (Lego lego) {
+public ModelAndView deleteLego (Lego lego, HttpServletRequest request) {
+	System.out.println("Inside delete lego");
 	ModelAndView modelAndView = new ModelAndView();
-	//Lego legoToDelete = dao.getLegoById(item.id);
-	Lego legoToDelete = dao.getLegoById(7);
-	dao.deleteLego(legoToDelete);
-	List<Lego> allLegos = dao.getAllLegos();
+	String tempId = request.getParameter("id");
+	System.out.println(tempId);
+	//Lego legoToDelete = dao.getLegoById(temp);
+
+	//dao.deleteLego(legoToDelete);
+	/*List<Lego> allLegos = dao.getAllLegos();
 	modelAndView.setViewName("viewAllLegos");
-	modelAndView.addObject("all", allLegos);
+	modelAndView.addObject("all", allLegos);*/
 	return modelAndView;
 }
 

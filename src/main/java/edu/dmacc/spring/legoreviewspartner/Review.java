@@ -1,5 +1,6 @@
 package edu.dmacc.spring.legoreviewspartner;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,25 +19,17 @@ public class Review {
 	private String name;
 	private Gender gender;
 	private int age;
+	@Column (name = "REVIEW_VALUE")
 	private String review;
-	@ManyToOne
-	@JoinColumn (name = "LEGO_ID")
-	private Lego lego;
+	@Column (name = "LEGO_ID")
+	private int legoId;
 	
 	public Review() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Review(int id, String name, Gender gender, int age, String review, Lego lego) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.gender = gender;
-		this.age = age;
-		this.review = review;
-		this.lego = lego;
-	}
+
 
 	public int getId() {
 		return id;
@@ -78,19 +71,26 @@ public class Review {
 		this.review = review;
 	}
 
-	public Lego getLego() {
-		return lego;
+
+
+	/**
+	 * @return the legoId
+	 */
+	public int getLegoId() {
+		return legoId;
 	}
 
-	public void setLego(Lego lego) {
-		this.lego = lego;
+
+
+	/**
+	 * @param legoId the legoId to set
+	 */
+	public void setLegoId(int legoId) {
+		this.legoId = legoId;
 	}
 
-	@Override
-	public String toString() {
-		return "Review [id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", review=" + review
-				+ ", lego=" + lego + "]";
-	}
+
+
 	
 
 }

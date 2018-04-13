@@ -48,8 +48,7 @@ public class LegoDao {
 	public void deleteLego (Lego toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Lego> typedQuery = em.createQuery(
-		"select l from Lego l where l.id = :selectedId", Lego.class);
+		TypedQuery<Lego> typedQuery = em.createQuery("select l from Lego l where l.id = :selectedId", Lego.class);
 		typedQuery.setParameter("selectedId", toDelete.getId());
 		typedQuery.setMaxResults(1);
 		Lego result = typedQuery.getSingleResult();
