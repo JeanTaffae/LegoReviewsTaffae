@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -33,7 +35,9 @@ public ModelAndView review() {
 	ModelAndView modelAndView = new ModelAndView();
 	modelAndView.setViewName("reviewForm");
 	modelAndView.addObject("review", new Review());
-	List<Lego> allLegos = dao.getLegoNames();
+	List<Lego> allLegos = dao.getLegoIds();
+	modelAndView.addObject("allLegos", allLegos);
+	//List<Lego> allLegos = dao.getAllLegos();
 	modelAndView.addObject("allLegos", allLegos);
 	modelAndView.addObject("reviews", reviews);
 	return modelAndView;
@@ -57,8 +61,7 @@ public ModelAndView review() {
 @RequestMapping(value = "/reviewResult")
 public ModelAndView processReview (Review review) {
 	ModelAndView modelAndView = new ModelAndView();
-	Lego lego = dao.getLegoByName("lego");
-	System.out.println(lego.toString());
+	System.out.println("I made it");
 	dao.insertReview(review);
 	modelAndView.setViewName("reviewResult");
 	modelAndView.addObject("r", review);
@@ -92,6 +95,12 @@ public ModelAndView deleteLego (Lego lego, HttpServletRequest request) {
 
 	//dao.deleteLego(legoToDelete);
 	/*List<Lego> allLegos = dao.getAllLegos();
+ModelAndView modelAndView = new ModelAndView();
+	Lego legoToDelete = dao.getLegoById(item.id);
+	String id = request.getParameter("id");
+	Lego legoToDelete = dao.getLegoById(7);
+	dao.deleteLego(legoToDelete);
+	List<Lego> allLegos = dao.getAllLegos();
 	modelAndView.setViewName("viewAllLegos");
 	modelAndView.addObject("all", allLegos);*/
 	return modelAndView;

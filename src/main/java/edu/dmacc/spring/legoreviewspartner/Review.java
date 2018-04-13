@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,7 +26,6 @@ public class Review {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 
 
 	public int getId() {
@@ -73,24 +70,16 @@ public class Review {
 
 
 
-	/**
-	 * @return the legoId
-	 */
 	public int getLegoId() {
 		return legoId;
 	}
 
 
 
-	/**
-	 * @param legoId the legoId to set
-	 */
 	public void setLegoId(int legoId) {
 		this.legoId = legoId;
 	}
 
 
-
-	
 
 }
