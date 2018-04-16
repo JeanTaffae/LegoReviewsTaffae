@@ -8,38 +8,47 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Edit Lego MVC Form</title>
 </head>
+
+<img
+src ="/pictures/Lego Errors.jpg" alt="lego 404">
+
 <body>
 <h2> Lego Edit Form</h2>
+
 <mvc:form modelAttribute="lego" action="editResult.mvc">
 	<table>
+
 	    <tr>
             <td><mvc:label path="name">Name</mvc:label></td>
-            <td><mvc:input path = "name" value = "${e.name}" /></td>
+            <td><mvc:input path = "name" value = "${toEdit.name}" /></td>
         </tr>
 		<tr>
             <td><mvc:label path="theme">Theme</mvc:label></td>
-            <td><mvc:select path="theme" items="${themes}" value = "${e.theme}" /></td>
+            <td><mvc:select path="theme" items="${themes}" value = "${toEdit.theme}" /></td>
         </tr>
         <tr>
             <td><mvc:label path="itemNumber">Item Number</mvc:label></td>
-            <td><mvc:input path = "itemNumber" value = "${e.itemNumber}" /></td>
+            <td><mvc:input path = "itemNumber" value = "${toEdit.itemNumber}" /></td>
         </tr>
 		<tr>
             <td><mvc:label path="ageRange">Age Range</mvc:label></td>
-            <td><mvc:select path="ageRange" items = "${ages}" value = "${e.ageRange}" /></td>
+            <td><mvc:select path="ageRange" items = "${ages}" value = "${toEdit.ageRange}" /></td>
         </tr>
         <tr>
             <td><mvc:label path="pieces">Pieces</mvc:label></td>
-            <td><mvc:input path="pieces" value = "${e.pieces}" /></td>
+            <td><mvc:input path="pieces" value = "${toEdit.pieces}" /></td>
         </tr>
         <tr>
             <td><mvc:label path="cost">Cost</mvc:label></td>
-            <td><mvc:input path="cost" value = "${e.cost}" /></td>
+            <td><mvc:input path="cost" value = "${toEdit.cost}" /></td>
         </tr>
 	    <tr>
-	        <td colspan="2">
+	   
+	    <input type="hidden"  name = "id" value="${toEdit.id }"> 
+	     <td colspan="2">
                 <input type="submit" value="Edit Lego" />
 	        </td>
+	        
 	    </tr>
 	</table>  
 </mvc:form>

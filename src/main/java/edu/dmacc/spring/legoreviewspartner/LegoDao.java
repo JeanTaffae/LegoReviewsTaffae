@@ -45,24 +45,26 @@ public class LegoDao {
 		System.out.println(allIds);
 		return allIds;
 	}
-	public Lego getLegoById(int i) {
-		EntityManager em=emfactory.createEntityManager();
-		em.getTransaction().begin();
-		Lego foundLego = em.find(Lego.class, i);
-		em.close();
-		return foundLego;
-	}
 	
 	public void deleteLego (Lego toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		TypedQuery<Lego> typedQuery = em.createQuery("select l from Lego l where l.id = :selectedId", Lego.class);
 		typedQuery.setParameter("selectedId", toDelete.getId());
-		//typedQuery.setMaxResults(1);
+		typedQuery.setMaxResults(1);
 		Lego result = typedQuery.getSingleResult();
+		System.out.println("TEST - result: " + result);
 		em.remove(result);
 		em.getTransaction().commit();
 		em.close();
+	}
+	
+	public Lego getLegoById(int i) {
+		EntityManager em=emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Lego foundLego = em.find(Lego.class, i);
+		em.close();
+		return foundLego;
 	}
 	
 	public void editLego (Lego toEdit) {

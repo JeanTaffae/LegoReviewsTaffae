@@ -9,7 +9,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "legos")
-
 public class Lego {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
