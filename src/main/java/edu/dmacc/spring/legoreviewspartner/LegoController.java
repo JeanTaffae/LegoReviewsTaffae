@@ -39,9 +39,7 @@ public class LegoController {
 		modelAndView.setViewName("reviewForm");
 		modelAndView.addObject("review", new Review());
 		List<Lego> allLegos = dao.getLegoIds();
-		// List<Lego> allLegos = dao.getAllLegos();
 		modelAndView.addObject("allLegos", allLegos);
-		// modelAndView.addObject("allLegos", allLegos); //is this duplicate?
 		modelAndView.addObject("reviews", reviews);
 		return modelAndView;
 	}
@@ -95,45 +93,14 @@ public class LegoController {
 		ModelAndView modelAndView = new ModelAndView();
 		Integer tempId = Integer.parseInt(request.getParameter("id"));
 		Lego legoToDelete = dao.getLegoById(tempId);
-		// String id = request.getParameter("id");
-		// Lego legoToDelete = dao.getLegoById(7);
 		dao.deleteLego(legoToDelete);
 		List<Lego> allLegos = dao.getAllLegos();
 		modelAndView.setViewName("viewAllLegos");
-		System.out.println("We got here--------------");
 		modelAndView.addObject("all", allLegos);
 		return modelAndView;
 	}
 
-	// String act = request.getParameter("doThisToLego");
-	/*
-	 * System.out.println("delete");//test ModelAndView modelAndView = new
-	 * ModelAndView(); //if (act.equals("Delete Lego")){
-	 * 
-	 * Integer tempId = Integer.parseInt(request.getParameter("id"));
-	 * 
-	 * Lego legoToDelete = dao.getLegoById(tempId); dao.deleteLego(legoToDelete);
-	 * List<Lego> allLegos = dao.getAllLegos();
-	 * modelAndView.setViewName("viewAllLegos"); modelAndView.addObject("all",
-	 * allLegos);
-	 */
-	// List<Lego> allLegos = dao.getAllLegos();
-
-	/*
-	 * @RequestMapping(value = "/editLego") public ModelAndView processEditLego
-	 * (Lego lego) {//not sure need if need httpservetrequest here
-	 * System.out.println("Inside edit lego"); ModelAndView modelAndView = new
-	 * ModelAndView(); dao.editLego(lego); //Lego editLego = dao.getLegoById(4);
-	 * System.out.println(lego.toString());
-	 * modelAndView.setViewName("legoResult");//should this be
-	 * modelAndView.addObject("ages", ages); modelAndView.addObject("themes",
-	 * themes); modelAndView.addObject("e", lego); return modelAndView;
-	 */
-	// }
-
 	@RequestMapping(value = "/editResult")
-	// public ModelAndView processEditResult(HttpServletRequest request,
-	// HttpServletResponse response)
 	public ModelAndView processEditResult(Lego lego) {
 		ModelAndView modelAndView = new ModelAndView();
 		dao.editLego(lego);
@@ -143,7 +110,7 @@ public class LegoController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/editLego") // Or legoUpdate
+	@RequestMapping(value = "/editLego")
 	public ModelAndView editLego(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String act = request.getParameter("doThisToLego");

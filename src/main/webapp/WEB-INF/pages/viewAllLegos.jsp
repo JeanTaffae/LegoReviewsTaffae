@@ -43,18 +43,23 @@
 			</tr>
 			<tr>
 				<td> </td>
+				<td>ID:</td>
+				<td>${item.id}</td>
+			</tr>
+			<tr>
+				<td> </td>
 				<td>Cost:</td>
 				<td>${item.cost}</td>
 			</tr>
 			</table>
 		<br />
 	<form action="deleteLego.mvc" method="POST"> 
-		<input name="id" type="hidden" value ="${item.id}">
-		<input type="submit" value= "Delete Lego">
+		<input name="id" type="hidden" value="${item.id}">
+		<input type="submit" value="Delete Lego">
 	</form>
 		<form action="editLego.mvc" method="POST"> 
-		<input name="id" type="hidden" value ="${item.id}">
-		<input type="submit" value= "Edit Lego">
+		<input name="id" type="hidden" value="${item.id}">
+		<input type="submit" value="Edit Lego">
 	</form>
 		<hr style="text-align: left; margin-left: 0; width: 25%">
 		<br />
@@ -64,6 +69,6 @@
 
 	<a href="editLego.mvc">Edit Selected Lego</a><br />
 	<a href="form.mvc">Add a new lego</a><br />
-	<a href = "reviewForm.mvc">Submit a Lego Review</a>
+	<a href="reviewForm.mvc">Submit a Lego Review</a>
 </body>
 </html>
