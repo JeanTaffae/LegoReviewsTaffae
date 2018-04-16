@@ -14,10 +14,10 @@
 <c:forEach items="${all}" var="item">
 		<table>
 			<tr>
-				<td>${item.id}</td>
+				<td><input type="radio" name=id value ="${item.id}"></td>
 				</tr>
-				<tr>
-				
+			<tr>
+				<td> </td>
 				<td>Name:</td>
 				<td>${item.name}</td>
 			</tr>
@@ -47,17 +47,21 @@
 				<td>${item.cost}</td>
 			</tr>
 			</table>
-		
 		<br />
 	<form action="deleteLego.mvc" method="POST"> 
 		<input name="id" type="hidden" value ="${item.id}">
 		<input type="submit" value= "Delete Lego">
 	</form>
+		<form action="editLego.mvc" method="POST"> 
+		<input name="id" type="hidden" value ="${item.id}">
+		<input type="submit" value= "Edit Lego">
+	</form>
 		<hr style="text-align: left; margin-left: 0; width: 25%">
 		<br />
 		
 	</c:forEach>
-	
+
+
 	<a href="editLego.mvc">Edit Selected Lego</a><br />
 	<a href="form.mvc">Add a new lego</a><br />
 	<a href = "reviewForm.mvc">Submit a Lego Review</a>

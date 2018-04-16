@@ -12,7 +12,8 @@
 <h2> Lego Entry Form</h2>
 <mvc:form modelAttribute="lego" action="result.mvc">
 	<table>
-	    <tr>
+	  
+	    	<tr>
 	        <td><mvc:label path="name">Name</mvc:label></td>
 	        <td><mvc:input path="name" /></td>
 	    </tr>
