@@ -58,7 +58,7 @@ public class LegoDao {
 		em.getTransaction().begin();
 		TypedQuery<Lego> typedQuery = em.createQuery("select l from Lego l where l.id = :selectedId", Lego.class);
 		typedQuery.setParameter("selectedId", toDelete.getId());
-		typedQuery.setMaxResults(1);
+		//typedQuery.setMaxResults(1);
 		Lego result = typedQuery.getSingleResult();
 		em.remove(result);
 		em.getTransaction().commit();

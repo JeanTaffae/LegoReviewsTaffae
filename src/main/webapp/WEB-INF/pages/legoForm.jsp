@@ -43,8 +43,8 @@
 	    </tr>
 	</table>  
 </mvc:form>
-<a href = "viewAllLegos.mvc">View all Legos</a><br />
+<a href = "viewAllLegos.mvc">View All Legos</a><br />
 <a href = "reviewForm.mvc">Submit a Lego Review</a><br />
-<a href = "viewAllReviews.mvc">View all Lego Reviews</a><br />
+<a href = "viewAllReviews.mvc">View All Lego Reviews</a><br />
 </body>
 </html>

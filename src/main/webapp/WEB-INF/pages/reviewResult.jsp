@@ -32,6 +32,9 @@
             <td>${r.review}</td>
         </tr>
         </table>
-<a href = "viewAllReviews.mvc">View all Reviews</a>
+<a href = "viewAllReviews.mvc">View All Reviews</a><br />
+<a href = "reviewForm.mvc">Submit a New Lego Review</a><br />
+<a href = "viewAllLegos.mvc">View All Legos</a><br />
+
 </body>
 </html>
