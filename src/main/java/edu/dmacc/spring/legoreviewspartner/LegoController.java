@@ -35,10 +35,10 @@ public ModelAndView review() {
 	ModelAndView modelAndView = new ModelAndView();
 	modelAndView.setViewName("reviewForm");
 	modelAndView.addObject("review", new Review());
-	List<Lego> allLegos = dao.getLegoIds();
+	//List<Lego> allLegos = dao.getLegoIds();
+	List<Lego> allLegos = dao.getAllLegos();
 	modelAndView.addObject("allLegos", allLegos);
-	//List<Lego> allLegos = dao.getAllLegos();
-	modelAndView.addObject("allLegos", allLegos);
+	//modelAndView.addObject("allLegos", allLegos); //is this duplicate?
 	modelAndView.addObject("reviews", reviews);
 	return modelAndView;
 }
@@ -69,12 +69,12 @@ public ModelAndView processReview (Review review) {
 }
 
 @RequestMapping(value = "/viewAllLegos")
-	public ModelAndView viewAllLegos () {
-		ModelAndView modelAndView = new ModelAndView();
-		List<Lego> allLegos = dao.getAllLegos();
-		modelAndView.setViewName("viewAllLegos");
-		modelAndView.addObject("all", allLegos);
-		return modelAndView;
+public ModelAndView viewAllLegos () {
+	ModelAndView modelAndView = new ModelAndView();
+	List<Lego> allLegos = dao.getAllLegos();
+	modelAndView.setViewName("viewAllLegos");
+	modelAndView.addObject("all", allLegos);
+	return modelAndView;
 }
 @RequestMapping(value = "/viewAllReviews")
 public ModelAndView viewAllReviews () {
