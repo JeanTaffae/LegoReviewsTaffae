@@ -20,7 +20,7 @@ src ="/pictures/Lego Errors.jpg" alt="lego 404">
 
 	    <tr>
             <td><mvc:label path="name">Name</mvc:label></td>
-            <td><mvc:input path = "name" value = "${toEdit.name}" /></td>
+            <td><mvc:input path="name" value = "${toEdit.name}" /></td>
         </tr>
 		<tr>
             <td><mvc:label path="theme">Theme</mvc:label></td>
@@ -47,8 +47,8 @@ src ="/pictures/Lego Errors.jpg" alt="lego 404">
 	    <input type="hidden"  name = "id" value="${toEdit.id }"> 
 	     <td colspan="2">
                 <input type="submit" value="Edit Lego" />
-	        </td>
-	        
+                </td>
+
 	    </tr>
 	</table>  
 </mvc:form>

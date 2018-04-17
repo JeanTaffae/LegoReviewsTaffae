@@ -52,8 +52,8 @@ public class LegoDao {
 		em.getTransaction().begin();
 		int LegoId = toDelete.getId();
 		String Legoseq = "DELETE FROM Lego LegoThing WHERE LegoThing.id = :ID";
-		int typedQuery = em.createQuery(Legoseq).setParameter("ID", LegoId).executeUpdate();
-		em.getTransaction().commit();
+		int typedQuery = em.createQuery( Legoseq ).setParameter("ID", LegoId).executeUpdate();
+		em.getTransaction().commit(); 
 		em.close();
 	}
 	

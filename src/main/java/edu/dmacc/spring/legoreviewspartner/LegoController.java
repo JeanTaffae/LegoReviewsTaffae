@@ -110,42 +110,16 @@ public class LegoController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/editLego")
-	public ModelAndView editLego(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String act = request.getParameter("doThisToLego");
+	@RequestMapping(value = "/editLego")	
+	public ModelAndView editLego(Lego lego) {
 		ModelAndView modelAndView = new ModelAndView();
-		if (act.equals("Edit Selected Lego")) {
-			String checkId = request.getParameter("id");
-			if (checkId == null) {
-				modelAndView.setViewName("legoForm");
-				return modelAndView;
-			}
-
-			Integer tempId = Integer.parseInt(request.getParameter("id"));
-			Lego legoToEdit = dao.getLegoById(tempId);
-			request.setAttribute("legoToEdit", legoToEdit);
-			modelAndView.setViewName("editLego");
-			modelAndView.addObject("themes", themes);
-			modelAndView.addObject("ageRange", ages);
-			modelAndView.addObject("all", legoToEdit);
-
-		} else if (act.equals("Delete Lego")) {
-			System.out.println("delete");// test
-			String checkId = request.getParameter("id");
-			if (checkId == null) {
-				modelAndView.setViewName("legoForm");
-				return modelAndView;
-			}
-
-			Integer tempId = Integer.parseInt(request.getParameter("id"));
-			Lego legoToDelete = dao.getLegoById(tempId);
-			dao.deleteLego(legoToDelete);
-			List<Lego> allLegos = dao.getAllLegos();
-			modelAndView.setViewName("viewAllLegos");
-			modelAndView.addObject("all", allLegos);
-		}
+		modelAndView.setViewName("editLego");
+		System.out.println("afda");
+		Integer tempId = lego.getId();
+		Lego legoToEdit = dao.getLegoById(tempId);
+		modelAndView.addObject("ages", ages);
+		modelAndView.addObject("themes", themes);
+		modelAndView.addObject("toEdit", legoToEdit);
 		return modelAndView;
 	}
-
 }

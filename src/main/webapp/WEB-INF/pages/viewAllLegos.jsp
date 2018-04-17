@@ -67,8 +67,8 @@
 	</c:forEach>
 
 
-	<a href="editLego.mvc">Edit Selected Lego</a><br />
-	<a href="form.mvc">Add a new lego</a><br />
+	<!--<a href="editLego.mvc">Edit Selected Lego</a><br />-->
+	<a href="form.mvc">Add a New Lego</a><br />
 	<a href="reviewForm.mvc">Submit a Lego Review</a>
 </body>
 </html>
