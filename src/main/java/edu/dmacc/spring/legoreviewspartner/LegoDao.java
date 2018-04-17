@@ -52,7 +52,7 @@ public class LegoDao {
 		em.getTransaction().begin();
 		int LegoId = toDelete.getId();
 		String Legoseq = "DELETE FROM Lego LegoThing WHERE LegoThing.id = :ID";
-		int typedQuery = em.createQuery( Legoseq ).setParameter("ID", LegoId).executeUpdate();
+		int typedQuery = em.createQuery(Legoseq).setParameter("ID", LegoId).executeUpdate();
 		em.getTransaction().commit();
 		em.close();
 	}
@@ -90,6 +90,9 @@ public class LegoDao {
 		return all;
 	}
 
+	//DeleteAllReviewsByItemID
+	// DELETE FROM reviews WHERE lego_id = :LEGOID
+	
 	public Lego getLegoByName(String legoName) {
 		EntityManager em=emfactory.createEntityManager();
 		em.getTransaction().begin();
