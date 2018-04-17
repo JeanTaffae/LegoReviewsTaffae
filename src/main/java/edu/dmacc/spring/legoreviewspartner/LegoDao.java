@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Parameter;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
@@ -45,25 +46,23 @@ public class LegoDao {
 		System.out.println(allIds);
 		return allIds;
 	}
+	
+	public void deleteLego (Lego toDelete) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		int LegoId = toDelete.getId();
+		String Legoseq = "DELETE FROM Lego LegoThing WHERE LegoThing.id = :ID";
+		int typedQuery = em.createQuery( Legoseq ).setParameter("ID", LegoId).executeUpdate();
+		em.getTransaction().commit(); 
+		em.close();
+	}
+	
 	public Lego getLegoById(int i) {
 		EntityManager em=emfactory.createEntityManager();
 		em.getTransaction().begin();
 		Lego foundLego = em.find(Lego.class, i);
 		em.close();
 		return foundLego;
-	}
-	
-	public void deleteLego (Lego toDelete) {
-		EntityManager em = emfactory.createEntityManager();
-		em.getTransaction().begin();
-		TypedQuery<Lego> typedQuery = em.createQuery(
-		"select l from Lego l where l.id = :selectedId", Lego.class);
-		typedQuery.setParameter("selectedId", toDelete.getId());
-		typedQuery.setMaxResults(1);
-		Lego result = typedQuery.getSingleResult();
-		em.remove(result);
-		em.getTransaction().commit();
-		em.close();
 	}
 	
 	public void editLego (Lego toEdit) {
@@ -91,6 +90,9 @@ public class LegoDao {
 		return all;
 	}
 
+	//DeleteAllReviewsByItemID
+	// DELETE FROM reviews WHERE lego_id = :LEGOID
+	
 	public Lego getLegoByName(String legoName) {
 		EntityManager em=emfactory.createEntityManager();
 		em.getTransaction().begin();

@@ -35,6 +35,7 @@
             <td>${l.cost}</td>
         </tr>
         </table>
-<a href = "viewAllLegos.mvc">View all Legos</a>
+<a href = "viewAllLegos.mvc">View all Legos</a><br />
+<a href="editLego.mvc">Edit Selected Lego</a><br />
 </body>
 </html>

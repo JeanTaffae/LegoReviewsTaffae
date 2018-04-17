@@ -9,7 +9,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "reviews")
-
 public class Review {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -27,7 +26,7 @@ public class Review {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+
 	public int getId() {
 		return id;
 	}
@@ -69,14 +68,17 @@ public class Review {
 	}
 
 
+
 	public int getLegoId() {
 		return legoId;
 	}
 
 
+
 	public void setLegoId(int legoId) {
 		this.legoId = legoId;
 	}
+
 
 
 }

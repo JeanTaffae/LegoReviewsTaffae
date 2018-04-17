@@ -40,5 +40,7 @@
 		<br />
 	</c:forEach>
 </mvc:form>
+<a href = "viewAllLegos.mvc">View All Legos</a><br />
+<a href = "reviewForm.mvc">Submit a Lego Review</a><br />
 </body>
 </html>

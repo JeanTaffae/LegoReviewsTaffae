@@ -10,11 +10,14 @@
 <title>All Legos</title>
 </head>
 <body>
-<mvc:form modelAttribute="lego" >
+
 <c:forEach items="${all}" var="item">
 		<table>
 			<tr>
-				<td><input type = "radio" name = "id" value="${item.id}"></td>
+				<td><input type="radio" name=id value ="${item.id}"></td>
+				</tr>
+			<tr>
+				<td> </td>
 				<td>Name:</td>
 				<td>${item.name}</td>
 			</tr>
@@ -40,18 +43,32 @@
 			</tr>
 			<tr>
 				<td> </td>
+				<td>ID:</td>
+				<td>${item.id}</td>
+			</tr>
+			<tr>
+				<td> </td>
 				<td>Cost:</td>
 				<td>${item.cost}</td>
 			</tr>
 			</table>
 		<br />
+	<form action="deleteLego.mvc" method="POST"> 
+		<input name="id" type="hidden" value="${item.id}">
+		<input type="submit" value="Delete Lego">
+	</form>
+		<form action="editLego.mvc" method="POST"> 
+		<input name="id" type="hidden" value="${item.id}">
+		<input type="submit" value="Edit Lego">
+	</form>
 		<hr style="text-align: left; margin-left: 0; width: 25%">
 		<br />
+		
 	</c:forEach>
-</mvc:form>
-	<a href="deleteLego.mvc">Delete Selected Lego</a><br />
-	<a href="editLego.mvc">Edit Selected Lego</a><br />
-	<a href="form.mvc">Add a new lego</a><br />
-	<a href = "reviewForm.mvc">Submit a Lego Review</a>
+
+
+	<!--<a href="editLego.mvc">Edit Selected Lego</a><br />-->
+	<a href="form.mvc">Add a New Lego</a><br />
+	<a href="reviewForm.mvc">Submit a Lego Review</a>
 </body>
 </html>
