@@ -1,8 +1,11 @@
 package edu.dmacc.spring.legoreviewspartner;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -86,11 +89,10 @@ public ModelAndView viewAllReviews () {
 }
 
 @RequestMapping(value = "/deleteLego")
-public ModelAndView deleteLego (Lego lego, HttpServletRequest request) {
+public ModelAndView deleteLego (Lego lego, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	ModelAndView modelAndView = new ModelAndView();
-	//Lego legoToDelete = dao.getLegoById(item.id);
-	String id = request.getParameter("id");
-	Lego legoToDelete = dao.getLegoById(7);
+	Integer tempId = Integer.parseInt(request.getParameter("id"));
+	Lego legoToDelete = dao.getLegoById(tempId);
 	dao.deleteLego(legoToDelete);
 	List<Lego> allLegos = dao.getAllLegos();
 	modelAndView.setViewName("viewAllLegos");
@@ -101,12 +103,12 @@ public ModelAndView deleteLego (Lego lego, HttpServletRequest request) {
 @RequestMapping(value = "/editLego")
 public ModelAndView editLego (Lego lego) {
 	ModelAndView modelAndView = new ModelAndView();
-	Lego editLego = dao.getLegoById(4);
-	System.out.println(lego.toString());
 	modelAndView.setViewName("editLego");
+	Integer tempId = lego.getId();
+	Lego legoToEdit = dao.getLegoById(tempId);
 	modelAndView.addObject("ages", ages);
 	modelAndView.addObject("themes", themes);
-	modelAndView.addObject("e", editLego);
+	modelAndView.addObject("toEdit", legoToEdit);
 	return modelAndView;
 }
 @RequestMapping(value = "/editResult")
