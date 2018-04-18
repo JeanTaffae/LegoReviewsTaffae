@@ -31,6 +31,7 @@ a:active {
 <h1>Lego Review System</h1>
 <br />
 <h2> Lego Edit Form</h2>
+
 <mvc:form modelAttribute="lego" action="editResult.mvc">
 	<table>
 

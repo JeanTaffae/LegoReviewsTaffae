@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@taglib uri = "http://www.springframework.org/tags/form" prefix="mvc" %>
+    <%@taglib uri = "http://www.springframework.org/tags/form" prefix="mvc" %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -34,7 +34,8 @@ a:active {
 <br />
 <mvc:form modelAttribute="lego" action="result.mvc">
 	<table>
-	    <tr>
+	  
+	    	<tr>
 	        <td><mvc:label path="name">Name</mvc:label></td>
 	        <td><mvc:input path="name" /></td>
 	    </tr>
@@ -71,5 +72,8 @@ a:active {
 <a href = "viewAllReviews.mvc">View all Lego Reviews</a><br />
 <br />
 <img src="Lego_Color_Bricks.jpg"/>
+<a href = "viewAllLegos.mvc">View All Legos</a><br />
+<a href = "reviewForm.mvc">Submit a Lego Review</a><br />
+<a href = "viewAllReviews.mvc">View All Lego Reviews</a><br />
 </body>
 </html>

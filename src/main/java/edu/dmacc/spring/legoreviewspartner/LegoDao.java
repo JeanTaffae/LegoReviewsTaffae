@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Parameter;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
@@ -46,13 +47,6 @@ public class LegoDao {
 		System.out.println(allIds);
 		return allIds;
 	}
-	public Lego getLegoById(int i) {
-		EntityManager em=emfactory.createEntityManager();
-		em.getTransaction().begin();
-		Lego foundLego = em.find(Lego.class, i);
-		em.close();
-		return foundLego;
-	}
 	
 	public void deleteLego (Lego toDelete) {
 		EntityManager em = emfactory.createEntityManager();
@@ -66,8 +60,16 @@ public class LegoDao {
 		em.getTransaction().begin();
 		String Legoseq = "DELETE FROM Lego LegoThing WHERE LegoThing.id = :ID";
 		int typedQuery2 = em.createQuery( Legoseq ).setParameter("ID", LegoId).executeUpdate();
-		em.getTransaction().commit();
+		em.getTransaction().commit(); 
 		em.close();
+	}
+	
+	public Lego getLegoById(int i) {
+		EntityManager em=emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Lego foundLego = em.find(Lego.class, i);
+		em.close();
+		return foundLego;
 	}
 	
 	public void editLego (Lego toEdit) {

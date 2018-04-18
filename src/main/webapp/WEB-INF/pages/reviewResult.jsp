@@ -58,5 +58,6 @@ a:active {
 <a href = "viewAllReviews.mvc">View all Reviews</a><br />
 <a href = "reviewForm.mvc">Submit a New Lego Review</a><br />
 <a href = "viewAllLegos.mvc">View All Legos</a><br />
+
 </body>
 </html>
