@@ -59,6 +59,5 @@ a:active {
         </tr>
         </table>
 <a href = "viewAllLegos.mvc">View all Legos</a><br />
-<a href="editLego.mvc">Edit Selected Lego</a><br />
 </body>
 </html>
