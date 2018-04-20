@@ -72,8 +72,5 @@ a:active {
 <a href = "viewAllReviews.mvc">View all Lego Reviews</a><br />
 <br />
 <img src="Lego_Color_Bricks.jpg"/>
-<a href = "viewAllLegos.mvc">View All Legos</a><br />
-<a href = "reviewForm.mvc">Submit a Lego Review</a><br />
-<a href = "viewAllReviews.mvc">View All Lego Reviews</a><br />
 </body>
 </html>
